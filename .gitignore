@@ -1,0 +1,9 @@
+.github/
+# Ignorar archivos y carpetas de Terraform
+Terraform/.terraform/
+Terraform/.terraform.lock.hcl
+ Terraform/.terraform/
+
+.terraform/
+
+
