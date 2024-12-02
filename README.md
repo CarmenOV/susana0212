@@ -1,9 +1,13 @@
 Quiénes Somos
 
 Empleado	  Tarea
+
 carmen   	  Project Manager
+
 carmen1  	  Full Stack Developer
+
 carmen2   	UI/UX Designer
+
 carmen 3  	Infraestructure Sys/Admin
 
 
