@@ -1,5 +1,5 @@
 # Crear un Bucket en S3
-resource "aws_s3_bucket" "mi_bucket_carmen" {
+resource "aws_s3_bucket" "mibucketcarmen" {
   bucket = "carmen-bucket-2024"  # Asegúrate de que el nombre sea único
   force_destroy = true  # Permite destruir el bucket incluso si tiene objetos
 
@@ -10,15 +10,15 @@ resource "aws_s3_bucket" "mi_bucket_carmen" {
 }
 
 # Configurar el acceso público para el Bucket (si se desea)
-resource "aws_s3_bucket_public_access_block" "bucket_public_block_carmen" {
-  bucket = aws_s3_bucket.mi_bucket_carmen.id
+resource "aws_s3_bucket_public_access_block" "bucketpublicblockcarmen" {
+  bucket = aws_s3_bucket.mibucketcarmen.id
 
   block_public_acls       = false
   block_public_policy     = false
   ignore_public_acls      = false
   restrict_public_buckets = false
 
-  depends_on = [aws_s3_bucket.mi_bucket_carmen]
+  depends_on = [aws_s3_bucket.mibucketcarmen]
 }
 
 # Aplicar la política de acceso pública al Bucket
@@ -35,17 +35,17 @@ resource "aws_s3_bucket_policy" "bucket_policy_carmen" {
         Action = [
           "s3:GetObject"
         ]
-        Resource = "${aws_s3_bucket.mi_bucket_carmen.arn}/*"
+        Resource = "${aws_s3_bucket.mibucketcarmen.arn}/*"
       }
     ]
   })
 
-  depends_on = [aws_s3_bucket_public_access_block.bucket_public_block_carmen]
+  depends_on = [aws_s3_bucket_public_access_block.bucketpublicblockcarmen]
 }
 
 # Configurar el Bucket como un sitio web estático
-resource "aws_s3_bucket_website_configuration" "s3_pagina_carmen" {
-  bucket = aws_s3_bucket.mi_bucket_carmen.id
+resource "aws_s3_bucket_website_configuration" "s3paginacarmen" {
+  bucket = aws_s3_bucket.mibucketcarmen.id
 
   index_document {
     suffix = "index.html"
